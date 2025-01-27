@@ -59,8 +59,8 @@ class ProjectDetails extends StatelessWidget {
                               ),
                               const Spacer(),
                               StoreLinks(
-                                iosUri: project.iosLink,
-                                androidUri: project.androidLink,
+                                iosUrl: project.iosLink,
+                                androidUrl: project.androidLink,
                               ),
                             ],
                           ),

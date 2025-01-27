@@ -1,3 +1,5 @@
+import 'package:url_launcher/url_launcher.dart';
+
 class AppPaddings {
   static double small = 8.0;
   static double medium = 16.0;
@@ -20,4 +22,10 @@ class AppFontSizes {
 class AppPersonalLinks {
   static String linkedin = 'https://linkedin.com/in/bryan-sanchez-peralta';
   static String gitHub = 'https://github.com/BlAcKPhOeNiX233';
+}
+
+void launchURL(String rawURL) {
+  final url = Uri.parse(rawURL);
+  
+  launchUrl(url, mode: LaunchMode.externalApplication);
 }

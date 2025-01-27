@@ -1,9 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/widgets/section.dart';
 import 'package:portfolio/widgets/contact.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatelessWidget {
   final ScrollController scrollController;
@@ -40,27 +40,13 @@ class Footer extends StatelessWidget {
               children: [
                 Contact(
                   icon: FontAwesomeIcons.linkedin,
-                  onTap: () {
-                    final url = Uri.parse(AppPersonalLinks.linkedin);
-
-                    launchUrl(
-                      url,
-                      mode: LaunchMode.externalApplication,
-                    );
-                  },
+                  onTap: () => launchURL(AppPersonalLinks.linkedin),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: AppPaddings.medium),
                   child: Contact(
                     icon: FontAwesomeIcons.github,
-                    onTap: () {
-                      final url = Uri.parse(AppPersonalLinks.gitHub);
-
-                      launchUrl(
-                        url,
-                        mode: LaunchMode.externalApplication,
-                      );
-                    },
+                    onTap: () => launchURL(AppPersonalLinks.gitHub),
                   ),
                 ),
               ],
@@ -72,18 +58,24 @@ class Footer extends StatelessWidget {
                 children: [
                   const Spacer(),
                   RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                       children: [
-                        TextSpan(
+                        const TextSpan(
                           text:
                               'This portfolio is made in Flutter. Check the code ',
                           style: TextStyle(color: Colors.white),
                         ),
                         TextSpan(
                           text: 'here',
-                          style: TextStyle(color: Colors.blue),
+                          style: const TextStyle(color: Colors.blue),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              launchURL(
+                                'https://github.com/BlAcKPhOeNiX233/portfolio',
+                              );
+                            },
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: '.',
                           style: TextStyle(color: Colors.white),
                         ),

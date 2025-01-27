@@ -4,13 +4,13 @@ import 'package:portfolio/constants.dart';
 import 'package:portfolio/widgets/link_button.dart';
 
 class StoreLinks extends StatelessWidget {
-  final String? iosUri;
-  final String? androidUri;
+  final String? iosUrl;
+  final String? androidUrl;
 
   const StoreLinks({
     super.key,
-    this.iosUri,
-    this.androidUri,
+    this.iosUrl,
+    this.androidUrl,
   });
 
   @override
@@ -18,19 +18,19 @@ class StoreLinks extends StatelessWidget {
     return Row(
       children: [
         // Show AppStore link only if it's setted
-        if (iosUri != null)
+        if (iosUrl != null)
           LinkButton(
             icon: FontAwesomeIcons.appStoreIos,
-            uri: iosUri!,
+            rawUrl: iosUrl!,
           ),
 
         // Show GooglePlay link only if it's setted
-        if (androidUri != null)
+        if (androidUrl != null)
           Padding(
             padding: EdgeInsets.only(left: AppPaddings.small),
             child: LinkButton(
               icon: FontAwesomeIcons.googlePlay,
-              uri: androidUri!,
+              rawUrl: androidUrl!,
             ),
           ),
       ],
