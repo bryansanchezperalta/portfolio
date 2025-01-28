@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/models/Project.dart';
+import 'package:portfolio/models/project.dart';
 import 'package:portfolio/widgets/cards/milestone_card.dart';
 import 'package:portfolio/widgets/cards/project_card.dart';
 import 'package:portfolio/widgets/section.dart';

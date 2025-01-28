@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/models/Project.dart';
+import 'package:go_router/go_router.dart';
+import 'package:portfolio/main.dart';
+import 'package:portfolio/models/project.dart';
 import 'package:portfolio/models/milestone.dart';
 import 'package:portfolio/models/tool.dart';
 import 'package:portfolio/pages/project_details.dart';
@@ -23,60 +25,54 @@ class _ProjectsRowState extends State<ProjectsRow> {
             imageName: 'icons/rhd.png',
             title: 'RHD',
             onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return ProjectDetails(
-                      project: Project(
-                        imagePath: 'icons/rhd.png',
-                        title: 'RHD',
-                        iosLink: 'https://apps.apple.com/it/app/rhd/id1473134077',
-                        description:
-                            'RHD, the flagship product of Alfa Group\'s Software Factory, is a low-code platform for designing and automating business processes (BPM).',
-                        role: 'Flutter Developer',
-                        imagesPath: [
-                          'projects/rhd/app_images/splash.png',
-                          'projects/rhd/app_images/dashboards.png',
-                          'projects/rhd/app_images/myRHD.png',
-                          'projects/rhd/app_images/tickets.png',
-                        ],
-                        milestones: [
-                          Milestone(
-                            icon: Icons.design_services,
-                            description:
-                                'Completely redesigned the app\'s user interface, integrating Apple\'s Human Interface Guidelines using CupertinoWidgets',
-                          ),
-                          Milestone(
-                            icon: Icons.notifications,
-                            description:
-                                'Implemented notifications using Firebase Cloud Messaging.',
-                          ),
-                          Milestone(
-                            icon: Icons.code,
-                            description:
-                                'Developed integration tests for the entire app.',
-                          ),
-                          Milestone(
-                            icon: Icons.rocket_launch,
-                            description:
-                                'Improved performance, scalability, and maintainability',
-                          ),
-                        ],
-                        tools: [
-                          Tool(
-                              imagePath: 'icons/flutter.png', title: 'Flutter'),
-                          Tool(
-                            imagePath: 'icons/firebase.png',
-                            title: 'Firebase',
-                          ),
-                          Tool(
-                            imagePath: 'icons/google_cloud.jpg',
-                            title: 'Google Cloud',
-                          ),
-                        ],
-                      ),
-                    );
-                  },
+              context.push(
+                '/project',
+                extra: Project(
+                  imagePath: 'icons/rhd.png',
+                  title: 'RHD',
+                  iosLink: 'https://apps.apple.com/it/app/rhd/id1473134077',
+                  description:
+                      'RHD, the flagship product of Alfa Group\'s Software Factory, is a low-code platform for designing and automating business processes (BPM).',
+                  role: 'Flutter Developer',
+                  imagesPath: [
+                    'projects/rhd/app_images/splash.png',
+                    'projects/rhd/app_images/dashboards.png',
+                    'projects/rhd/app_images/myRHD.png',
+                    'projects/rhd/app_images/tickets.png',
+                  ],
+                  milestones: [
+                    Milestone(
+                      icon: Icons.design_services,
+                      description:
+                          'Completely redesigned the app\'s user interface, integrating Apple\'s Human Interface Guidelines using CupertinoWidgets',
+                    ),
+                    Milestone(
+                      icon: Icons.notifications,
+                      description:
+                          'Implemented notifications using Firebase Cloud Messaging.',
+                    ),
+                    Milestone(
+                      icon: Icons.code,
+                      description:
+                          'Developed integration tests for the entire app.',
+                    ),
+                    Milestone(
+                      icon: Icons.rocket_launch,
+                      description:
+                          'Improved performance, scalability, and maintainability',
+                    ),
+                  ],
+                  tools: [
+                    Tool(imagePath: 'icons/flutter.png', title: 'Flutter'),
+                    Tool(
+                      imagePath: 'icons/firebase.png',
+                      title: 'Firebase',
+                    ),
+                    Tool(
+                      imagePath: 'icons/google_cloud.jpg',
+                      title: 'Google Cloud',
+                    ),
+                  ],
                 ),
               );
             },
