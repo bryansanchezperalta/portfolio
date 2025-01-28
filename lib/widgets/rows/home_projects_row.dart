@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:portfolio/main.dart';
 import 'package:portfolio/models/project.dart';
 import 'package:portfolio/models/milestone.dart';
 import 'package:portfolio/models/tool.dart';
-import 'package:portfolio/pages/project_details.dart';
 import 'package:portfolio/widgets/cards/project_card.dart';
 
 class ProjectsRow extends StatefulWidget {
@@ -81,58 +79,48 @@ class _ProjectsRowState extends State<ProjectsRow> {
             imageName: 'icons/spark.png',
             title: 'S-Park',
             onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return ProjectDetails(
-                      project: Project(
-                        imagePath: 'icons/spark.png',
-                        title: 'S-Park',
-                        description:
-                            'S-Park is a mobile app designed to allow user to spend less time finding and reserving monitored and free parking slots, considering: distance, prizes and schedules.',
-                        role: 'Owner',
-                        imagesPath: [
-                          'projects/spark/app_images/map.png',
-                          'projects/spark/app_images/garage_modal.png',
-                          'projects/spark/app_images/garage.png',
-                          'projects/spark/app_images/profile.png',
-                        ],
-                        milestones: [
-                          Milestone(
-                            icon: Icons.map_outlined,
-                            description:
-                                'Integrated Google and Apple maps API.',
-                          ),
-                          Milestone(
-                            icon: Icons.payment,
-                            description:
-                                'Implemented payments processing using Stripe\'s API.',
-                          ),
-                          Milestone(
-                            icon: Icons.data_array_rounded,
-                            description:
-                                'Managed database, media storage and authentication using Firebase',
-                          ),
-                        ],
-                        tools: [
-                          Tool(
-                              imagePath: 'icons/flutter.png', title: 'Flutter'),
-                          Tool(
-                            imagePath: 'icons/firebase.png',
-                            title: 'Firebase',
-                          ),
-                          Tool(
-                            imagePath: 'icons/google_maps.jpeg',
-                            title: 'Google Maps Api',
-                          ),
-                          Tool(
-                            imagePath: 'icons/mapkit.jpg',
-                            title: 'MapKit',
-                          ),
-                        ],
-                      ),
-                    );
-                  },
+              context.push(
+                '/project',
+                extra: Project(
+                  imagePath: 'icons/spark.png',
+                  title: 'S-Park',
+                  description:
+                      'S-Park is a mobile app designed to allow user to spend less time finding and reserving monitored and free parking slots, considering: distance, prizes and schedules.',
+                  role: 'Owner',
+                  imagesPath: [
+                    'projects/spark/app_images/map.png',
+                    'projects/spark/app_images/garage_modal.png',
+                    'projects/spark/app_images/garage.png',
+                    'projects/spark/app_images/profile.png',
+                  ],
+                  milestones: [
+                    Milestone(
+                      icon: Icons.map_outlined,
+                      description: 'Integrated Google and Apple maps API.',
+                    ),
+                    Milestone(
+                      icon: Icons.payment,
+                      description:
+                          'Implemented payments processing using Stripe\'s API.',
+                    ),
+                    Milestone(
+                      icon: Icons.data_array_rounded,
+                      description:
+                          'Managed database, media storage and authentication using Firebase',
+                    ),
+                  ],
+                  tools: [
+                    Tool(imagePath: 'icons/flutter.png', title: 'Flutter'),
+                    Tool(
+                      imagePath: 'icons/firebase.png',
+                      title: 'Firebase',
+                    ),
+                    Tool(
+                      imagePath: 'icons/google_maps.jpeg',
+                      title: 'Google Maps Api',
+                    ),
+                    Tool(imagePath: 'icons/mapkit.jpg', title: 'MapKit'),
+                  ],
                 ),
               );
             },
@@ -141,39 +129,32 @@ class _ProjectsRowState extends State<ProjectsRow> {
             imageName: 'icons/homext.jpeg',
             title: 'Homext',
             onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return ProjectDetails(
-                      project: Project(
-                        imagePath: 'icons/homext.jpeg',
-                        title: 'Homext',
-                        description:
-                            'Homext is a mobile app designed to allow Apple user to monitor their electricity bills, tracking the consumption of each HomeKit device.',
-                        role: 'iOS Developer',
-                        milestones: [
-                          Milestone(
-                            icon: Icons.home_filled,
-                            description: 'Managed HomeKit devices.',
-                          ),
-                          Milestone(
-                            icon: Icons.data_array_rounded,
-                            description: 'Managed database using FileMaker.',
-                          ),
-                        ],
-                        tools: [
-                          Tool(
-                              imagePath: 'icons/swiftui.png', title: 'SwiftUI'),
-                          Tool(
-                              imagePath: 'icons/homekit.png', title: 'HomeKit'),
-                          Tool(
-                            imagePath: 'icons/filemaker.png',
-                            title: 'Filemaker',
-                          ),
-                        ],
-                      ),
-                    );
-                  },
+              context.push(
+                '/project',
+                extra: Project(
+                  imagePath: 'icons/homext.jpeg',
+                  title: 'Homext',
+                  description:
+                      'Homext is a mobile app designed to allow Apple user to monitor their electricity bills, tracking the consumption of each HomeKit device.',
+                  role: 'iOS Developer',
+                  milestones: [
+                    Milestone(
+                      icon: Icons.home_filled,
+                      description: 'Managed HomeKit devices.',
+                    ),
+                    Milestone(
+                      icon: Icons.data_array_rounded,
+                      description: 'Managed database using FileMaker.',
+                    ),
+                  ],
+                  tools: [
+                    Tool(imagePath: 'icons/swiftui.png', title: 'SwiftUI'),
+                    Tool(imagePath: 'icons/homekit.png', title: 'HomeKit'),
+                    Tool(
+                      imagePath: 'icons/filemaker.png',
+                      title: 'Filemaker',
+                    ),
+                  ],
                 ),
               );
             },
@@ -182,36 +163,31 @@ class _ProjectsRowState extends State<ProjectsRow> {
             imageName: 'icons/evergreen.jpg',
             title: 'Evergreen',
             onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return ProjectDetails(
-                      project: Project(
-                        imagePath: 'icons/evergreen.jpg',
-                        title: 'Evergreen',
-                        description:
-                            'Evergreen is a mobile app designed to allow user to access their workout schedule and anable gym istructors to manage them.',
-                        role: 'Flutter developer',
-                        milestones: [
-                          Milestone(
-                            icon: Icons.person,
-                            description:
-                                'I developed the entire app from scratch, using Firebase for the database, media storage, authentication and backend APIs',
-                          ),
-                        ],
-                        tools: [
-                          Tool(
-                            imagePath: 'icons/flutter.png',
-                            title: 'Flutter',
-                          ),
-                          Tool(
-                            imagePath: 'icons/firebase.png',
-                            title: 'Firebase',
-                          ),
-                        ],
-                      ),
-                    );
-                  },
+              context.push(
+                '/project',
+                extra: Project(
+                  imagePath: 'icons/evergreen.jpg',
+                  title: 'Evergreen',
+                  description:
+                      'Evergreen is a mobile app designed to allow user to access their workout schedule and anable gym istructors to manage them.',
+                  role: 'Flutter developer',
+                  milestones: [
+                    Milestone(
+                      icon: Icons.person,
+                      description:
+                          'I developed the entire app from scratch, using Firebase for the database, media storage, authentication and backend APIs',
+                    ),
+                  ],
+                  tools: [
+                    Tool(
+                      imagePath: 'icons/flutter.png',
+                      title: 'Flutter',
+                    ),
+                    Tool(
+                      imagePath: 'icons/firebase.png',
+                      title: 'Firebase',
+                    ),
+                  ],
                 ),
               );
             },
