@@ -18,6 +18,7 @@ class _ProjectsRowState extends State<ProjectsRow> {
     return SizedBox(
       height: 150,
       child: ListView(
+        shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         children: [
           ProjectCard(
