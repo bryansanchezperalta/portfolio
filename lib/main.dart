@@ -2,8 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/models/project.dart';
-import 'package:portfolio/pages/home_page.dart';
-import 'package:portfolio/pages/project_details.dart';
+import 'package:portfolio/pages/desktop/home_page_desktop.dart';
+import 'package:portfolio/pages/desktop/project_details_desktop.dart';
+import 'package:portfolio/pages/mobile/home_page_mobile.dart';
+import 'package:portfolio/pages/mobile/project_details_mobile.dart';
+import 'package:portfolio/widgets/responsive.dart';
 
 void main() {
   runApp(PortfolioApp());
@@ -14,14 +17,20 @@ class PortfolioApp extends StatelessWidget {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => HomePage(),
+        builder: (context, state) => Responsive(
+          desktopWidget: HomePageDesktop(),
+          mobileWidget: HomePageMobile(),
+        ),
       ),
       GoRoute(
         path: '/project',
         builder: (context, state) {
           Project project = state.extra as Project;
 
-          return ProjectDetails(project: project);
+          return Responsive(
+            desktopWidget: ProjectDetailsDesktop(project: project),
+            mobileWidget: ProjectDetailsMobile(project: project),
+          );
         },
       ),
     ],

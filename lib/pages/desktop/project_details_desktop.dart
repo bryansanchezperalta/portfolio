@@ -3,15 +3,15 @@ import 'package:portfolio/constants.dart';
 import 'package:portfolio/models/project.dart';
 import 'package:portfolio/widgets/cards/milestone_card.dart';
 import 'package:portfolio/widgets/cards/project_card.dart';
+import 'package:portfolio/widgets/desktop/footer_desktop.dart';
 import 'package:portfolio/widgets/section.dart';
-import 'package:portfolio/widgets/footer.dart';
 import 'package:portfolio/widgets/rows/store_links.dart';
 
-class ProjectDetails extends StatelessWidget {
+class ProjectDetailsDesktop extends StatelessWidget {
   final Project project;
   final ScrollController _scrollController = ScrollController();
 
-  ProjectDetails({super.key, required this.project});
+  ProjectDetailsDesktop({super.key, required this.project});
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +125,7 @@ class ProjectDetails extends StatelessWidget {
                 ],
               ),
             ),
-            Footer(scrollController: _scrollController),
+            FooterDesktop(scrollController: _scrollController),
           ],
         ),
       ),

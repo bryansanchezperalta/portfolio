@@ -15,9 +15,10 @@ class ProjectsRow extends StatefulWidget {
 class _ProjectsRowState extends State<ProjectsRow> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
+    return SizedBox(
+      height: 150,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
         children: [
           ProjectCard(
             imageName: 'icons/rhd.png',

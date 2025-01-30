@@ -5,10 +5,10 @@ import 'package:portfolio/constants.dart';
 import 'package:portfolio/widgets/section.dart';
 import 'package:portfolio/widgets/contact.dart';
 
-class Footer extends StatelessWidget {
+class FooterDesktop extends StatelessWidget {
   final ScrollController scrollController;
 
-  const Footer({super.key, required this.scrollController});
+  const FooterDesktop({super.key, required this.scrollController});
 
   @override
   Widget build(BuildContext context) {

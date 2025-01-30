@@ -6,10 +6,11 @@ class ProfessionalExperiencesRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
+    return SizedBox(
+      height: 150,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: const [
           ExperienceCard(
             title: 'Capgemini',
             date: '2024 - Present',

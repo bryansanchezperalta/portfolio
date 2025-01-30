@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:go_router/src/router.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/widgets/cards/experience_card.dart';
 import 'package:portfolio/widgets/cards/project_card.dart';
-import 'package:portfolio/widgets/footer.dart';
+import 'package:portfolio/widgets/desktop/footer_desktop.dart';
 import 'package:portfolio/widgets/rows/education_row.dart';
 import 'package:portfolio/widgets/rows/professional_experiences_row.dart';
 import 'package:portfolio/widgets/rows/home_projects_row.dart';
 import 'package:portfolio/widgets/section.dart';
 import 'package:universal_html/html.dart' as html;
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+class HomePageDesktop extends StatelessWidget {
+  HomePageDesktop({super.key});
 
   final ScrollController _scrollController = ScrollController();
 
@@ -196,7 +195,7 @@ Experienced developing both native and hybrid apps.
                 ],
               ),
             ),
-            Footer(scrollController: _scrollController),
+            FooterDesktop(scrollController: _scrollController),
           ],
         ),
       ),

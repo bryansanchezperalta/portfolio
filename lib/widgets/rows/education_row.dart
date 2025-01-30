@@ -11,10 +11,11 @@ class EducationRow extends StatefulWidget {
 class _EducationRowState extends State<EducationRow> {
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
+    return SizedBox(
+      height: 250,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: const [
           ExperienceCard(
             title: 'Apple Developer Academy',
             date: '2022-2023',
@@ -32,7 +33,7 @@ Additionally, I improved my presentation skills by developing and presenting eac
 I completed Google Certificates' courses to gain experience as a project manager through real-world scenarios, from the planning to the closure of projects.\nDuring the courses I learned the theory and use of Waterfall and Agile methodologies and create effective project documents, charts and presentations.
 I also practiced in soft skill such as negotiation, influencing, coaching, strategic thinking, problem solving, communication and more.\nFor manage project, I used many software tools such as Asana, Google Docs, Google Sheets, Google Presentations.
 ''',
-      height: 250,
+            height: 250,
           ),
           ExperienceCard(
             title: 'Cisco Networking Academy',
