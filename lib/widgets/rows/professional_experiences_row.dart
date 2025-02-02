@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants.dart';
 import 'package:portfolio/widgets/cards/experience_card.dart';
 
 class ProfessionalExperiencesRow extends StatelessWidget {
@@ -10,6 +11,7 @@ class ProfessionalExperiencesRow extends StatelessWidget {
       height: 150,
       child: ListView(
         scrollDirection: Axis.horizontal,
+        padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
         children: const [
           ExperienceCard(
             title: 'Capgemini',

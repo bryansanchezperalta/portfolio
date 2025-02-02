@@ -18,15 +18,16 @@ class HomePageMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: ListView(
         controller: _scrollController,
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(AppPaddings.medium),
-              child: Column(
-                children: [
-                  Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: AppPaddings.medium),
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -44,10 +45,7 @@ class HomePageMobile extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '''
-I am a passionate mobile app developer with a strong desire to continue learning and improving my skills.
-Experienced developing both native and hybrid apps.
-''',
+                        'I am a passionate mobile app developer with a strong desire to continue learning and improving my skills.\nExperienced developing both native and hybrid apps.',
                         style: TextStyle(
                           fontSize: AppFontSizes.small,
                           overflow: TextOverflow.visible,
@@ -104,88 +102,96 @@ Experienced developing both native and hybrid apps.
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(AppPaddings.medium),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(
-                        AppBorderRadii.small,
+                ),
+                Padding(
+                  padding: EdgeInsets.all(AppPaddings.medium),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(
+                      AppBorderRadii.small,
+                    ),
+                    child: Image.asset('profile_image.jpg', height: 200),
+                  ),
+                ),
+                const Section(
+                  title: 'Projects',
+                  content: ProjectsRow(),
+                ),
+                Section(
+                  title: 'Tools',
+                  content: SizedBox(
+                    height: 150,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: AppBorderRadii.medium,
                       ),
-                      child: Image.asset('profile_image.jpg', height: 200),
+                      children: const [
+                        ProjectCard(
+                          imageName: 'icons/swiftui.png',
+                          title: 'SwiftUI',
+                        ),
+                        ProjectCard(
+                          imageName: 'icons/flutter.png',
+                          title: 'Flutter',
+                        ),
+                        ProjectCard(
+                          imageName: 'icons/firebase.png',
+                          title: 'Firebase',
+                        ),
+                        ProjectCard(
+                          imageName: 'icons/google_cloud.jpg',
+                          title: 'Google Cloud',
+                        ),
+                        ProjectCard(
+                          imageName: 'icons/homekit.png',
+                          title: 'HomeKit',
+                        ),
+                        ProjectCard(
+                          imageName: 'icons/realitykit.jpg',
+                          title: 'RealityKit',
+                        ),
+                        ProjectCard(
+                          imageName: 'icons/filemaker.png',
+                          title: 'FileMaker',
+                        ),
+                        ProjectCard(
+                          imageName: 'icons/google_maps.jpeg',
+                          title: 'Google Maps Api',
+                        ),
+                        ProjectCard(
+                          imageName: 'icons/mapkit.jpg',
+                          title: 'MapKit',
+                        ),
+                      ],
                     ),
                   ),
-                  const Section(
-                    title: 'Projects',
-                    content: ProjectsRow(),
-                  ),
-                  Section(
-                    title: 'Tools',
-                    content: SizedBox(
-                      height: 150,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: const [
-                          ProjectCard(
-                            imageName: 'icons/swiftui.png',
-                            title: 'SwiftUI',
-                          ),
-                          ProjectCard(
-                            imageName: 'icons/flutter.png',
-                            title: 'Flutter',
-                          ),
-                          ProjectCard(
-                            imageName: 'icons/firebase.png',
-                            title: 'Firebase',
-                          ),
-                          ProjectCard(
-                            imageName: 'icons/google_cloud.jpg',
-                            title: 'Google Cloud',
-                          ),
-                          ProjectCard(
-                            imageName: 'icons/homekit.png',
-                            title: 'HomeKit',
-                          ),
-                          ProjectCard(
-                            imageName: 'icons/realitykit.jpg',
-                            title: 'RealityKit',
-                          ),
-                          ProjectCard(
-                            imageName: 'icons/filemaker.png',
-                            title: 'FileMaker',
-                          ),
-                          ProjectCard(
-                            imageName: 'icons/google_maps.jpeg',
-                            title: 'Google Maps Api',
-                          ),
-                          ProjectCard(
-                            imageName: 'icons/mapkit.jpg',
-                            title: 'MapKit',
-                          ),
-                        ],
-                      ),
+                ),
+                const Section(
+                  title: 'Professional Experiences',
+                  content: ProfessionalExperiencesRow(),
+                ),
+                Section(
+                  title: 'Additional Experiences',
+                  content: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: AppPaddings.medium,
                     ),
-                  ),
-                  const Section(
-                    title: 'Professional Experiences',
-                    content: ProfessionalExperiencesRow(),
-                  ),
-                  const Section(
-                    title: 'Additional Experiences',
-                    content: ExperienceCard(
+                    child: const ExperienceCard(
                       title: 'S-Park',
                       description:
                           'I created and developed S-Park, a multi-platform app available on both the App Store and Play Store.\nDuring development, I deepened my knowledge of Dart, Flutter and Firebase.',
                     ),
                   ),
-                  const Section(
-                    title: 'Education and training',
-                    content: EducationRow(),
-                  ),
-                ],
-              ),
+                ),
+                const Section(
+                  title: 'Education and training',
+                  content: EducationRow(),
+                ),
+              ],
             ),
-            FooterMobile(scrollController: _scrollController),
-          ],
-        ),
+          ),
+          FooterMobile(scrollController: _scrollController),
+        ],
       ),
     );
   }

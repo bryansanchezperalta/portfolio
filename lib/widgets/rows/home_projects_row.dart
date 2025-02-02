@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:portfolio/constants.dart';
 import 'package:portfolio/models/project.dart';
 import 'package:portfolio/models/milestone.dart';
 import 'package:portfolio/models/tool.dart';
@@ -20,6 +21,7 @@ class _ProjectsRowState extends State<ProjectsRow> {
       child: ListView(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
+        padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
         children: [
           ProjectCard(
             imageName: 'icons/rhd.png',

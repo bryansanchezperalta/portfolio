@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants.dart';
 import 'package:portfolio/widgets/cards/experience_card.dart';
 
 class EducationRow extends StatefulWidget {
@@ -15,6 +16,7 @@ class _EducationRowState extends State<EducationRow> {
       height: 250,
       child: ListView(
         scrollDirection: Axis.horizontal,
+        padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
         children: const [
           ExperienceCard(
             title: 'Apple Developer Academy',
