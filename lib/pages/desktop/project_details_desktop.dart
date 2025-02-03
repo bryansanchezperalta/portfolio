@@ -16,118 +16,113 @@ class ProjectDetailsDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: ListView(
         controller: _scrollController,
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(AppPaddings.medium),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(bottom: AppPaddings.medium),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(
-                            AppBorderRadii.small,
-                          ),
-                          child: Image.asset(project.imagePath, height: 200),
+        children: [
+          Padding(
+            padding: EdgeInsets.all(AppPaddings.medium),
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(bottom: AppPaddings.medium),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(
+                          AppBorderRadii.small,
                         ),
-                        Container(
-                          padding: EdgeInsets.only(left: AppPaddings.medium),
-                          height: 200,
-                          width: 450,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                project.title,
-                                style: TextStyle(
-                                  fontSize: AppFontSizes.large,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        child: Image.asset(project.imagePath, height: 200),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left: AppPaddings.medium),
+                        height: 200,
+                        width: 450,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              project.title,
+                              style: TextStyle(
+                                fontSize: AppFontSizes.large,
+                                fontWeight: FontWeight.bold,
                               ),
-                              Text(
-                                project.role,
-                                style: TextStyle(fontSize: AppFontSizes.small),
-                              ),
-                              Text(
-                                project.description,
-                                style: TextStyle(fontSize: AppFontSizes.small),
-                              ),
-                              const Spacer(),
-                              StoreLinks(
-                                iosUrl: project.iosLink,
-                                androidUrl: project.androidLink,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  if (project.imagesPath != null)
-                    Section(
-                      title: 'Images',
-                      content: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Card(
-                          child: Padding(
-                            padding: EdgeInsets.all(AppPaddings.medium),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: project.imagesPath!.map(
-                                (imagePath) {
-                                  return Image.asset(
-                                    imagePath,
-                                    height: 350,
-                                  );
-                                },
-                              ).toList(),
                             ),
-                          ),
+                            Text(
+                              project.role,
+                              style: TextStyle(fontSize: AppFontSizes.small),
+                            ),
+                            Text(
+                              project.description,
+                              style: TextStyle(fontSize: AppFontSizes.small),
+                            ),
+                            const Spacer(),
+                            StoreLinks(
+                              iosUrl: project.iosLink,
+                              androidUrl: project.androidLink,
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                  Section(
-                    title: 'Milestones',
-                    content: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: project.milestones.map(
-                          (milestone) {
-                            return MilestoneCard(
-                              icon: milestone.icon,
-                              description: milestone.description,
-                            );
-                          },
-                        ).toList(),
-                      ),
-                    ),
+                    ],
                   ),
-                  Section(
-                    title: 'Tools',
-                    content: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: project.tools.map(
-                        (tool) {
-                          return ProjectCard(
-                            imageName: tool.imagePath,
-                            title: tool.title,
-                          );
-                        },
-                      ).toList(),
-                    ),
+                ),
+              ],
+            ),
+          ),
+          if (project.imagesPath != null)
+            Section(
+              title: 'Images',
+              content: Card(
+                margin: EdgeInsets.symmetric(horizontal: AppBorderRadii.medium),
+                child: SizedBox(
+                  height: 350,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.all(AppPaddings.medium),
+                    children: project.imagesPath!.map(
+                      (imagePath) {
+                        return Image.asset(imagePath);
+                      },
+                    ).toList(),
                   ),
-                ],
+                ),
               ),
             ),
-            FooterDesktop(scrollController: _scrollController),
-          ],
-        ),
+          Section(
+            title: 'Milestones',
+            content: SizedBox(
+              height: 100,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
+                children: project.milestones.map(
+                  (milestone) {
+                    return MilestoneCard(
+                      icon: milestone.icon,
+                      description: milestone.description,
+                    );
+                  },
+                ).toList(),
+              ),
+            ),
+          ),
+          Section(
+            title: 'Tools',
+            content: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: project.tools.map(
+                (tool) {
+                  return ProjectCard(
+                    imageName: tool.imagePath,
+                    title: tool.title,
+                  );
+                },
+              ).toList(),
+            ),
+          ),
+          FooterDesktop(scrollController: _scrollController),
+        ],
       ),
     );
   }
