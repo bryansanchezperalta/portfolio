@@ -77,7 +77,7 @@ flutter:
     - assets/icons/realitykit.jpg
     - assets/projects/spark/app_images/
     - assets/projects/rhd/app_images/
-    - assets/cv.pdf
+    - assets/cv.docx
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

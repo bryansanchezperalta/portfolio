@@ -68,7 +68,7 @@ class HomePageDesktop extends StatelessWidget {
                                 onPressed: () async {
                                   // Load the file as Uint8List from assets
                                   ByteData data =
-                                      await rootBundle.load('cv.pdf');
+                                      await rootBundle.load('cv.docx');
 
                                   final pdfData = data.buffer.asUint8List();
 
@@ -85,7 +85,7 @@ class HomePageDesktop extends StatelessWidget {
                                   // Create a temporary anchor element and trigger download
                                   html.AnchorElement(href: url)
                                     ..target = 'blank'
-                                    ..download = 'cv.pdf'
+                                    ..download = 'cv.docx'
                                     ..click();
 
                                   // Clean up the URL object
