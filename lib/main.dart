@@ -41,11 +41,19 @@ class PortfolioApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, child) {
+        ThemeMode themeMode;
+
+        if (themeProvider.themeMode == null) {
+          themeMode = ThemeMode.system;
+        } else {
+          themeMode = themeProvider.themeMode!;
+        }
+
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
-          themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+          themeMode: themeMode,
           scrollBehavior: const MaterialScrollBehavior().copyWith(
             dragDevices: {
               PointerDeviceKind.mouse,

@@ -16,16 +16,26 @@ class ThemeToggleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, child) {
+        bool isDarkMode;
+
+        if (themeProvider.themeMode != null) {
+          isDarkMode = themeProvider.themeMode! == ThemeMode.dark;
+        } else {
+          isDarkMode = Theme.of(context).brightness == Brightness.dark;
+        }
+
+        final iconColor = color ?? Theme.of(context).iconTheme.color;
+
         return IconButton(
           icon: Icon(
-            themeProvider.isDarkMode ? Icons.light_mode : Icons.dark_mode,
+            isDarkMode ? Icons.light_mode : Icons.dark_mode,
             size: size ?? 24,
-            color: color,
+            color: iconColor,
           ),
           onPressed: () {
-            themeProvider.toggleTheme();
+            themeProvider.toggleTheme(context);
           },
-          tooltip: themeProvider.isDarkMode ? 'Light Mode' : 'Dark Mode',
+          tooltip: isDarkMode ? 'Light Mode' : 'Dark Mode',
         );
       },
     );
