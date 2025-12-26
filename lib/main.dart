@@ -2,14 +2,19 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/models/project.dart';
-import 'package:portfolio/pages/desktop/home_page_desktop.dart';
-import 'package:portfolio/pages/desktop/project_details_desktop.dart';
-import 'package:portfolio/pages/mobile/home_page_mobile.dart';
-import 'package:portfolio/pages/mobile/project_details_mobile.dart';
-import 'package:portfolio/widgets/responsive.dart';
+import 'package:portfolio/pages/home_page.dart';
+import 'package:portfolio/pages/project_details.dart';
+import 'package:provider/provider.dart';
+import 'package:portfolio/providers/theme_provider.dart';
+import 'package:portfolio/theme/app_theme.dart';
 
 void main() {
-  runApp(PortfolioApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: PortfolioApp(),
+    ),
+  );
 }
 
 class PortfolioApp extends StatelessWidget {
@@ -17,20 +22,14 @@ class PortfolioApp extends StatelessWidget {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => Responsive(
-          desktopWidget: HomePageDesktop(),
-          mobileWidget: HomePageMobile(),
-        ),
+        builder: (context, state) => const HomePage(),
       ),
       GoRoute(
         path: '/project',
         builder: (context, state) {
           Project project = state.extra as Project;
 
-          return Responsive(
-            desktopWidget: ProjectDetailsDesktop(project: project),
-            mobileWidget: ProjectDetailsMobile(project: project),
-          );
+          return ProjectDetailsPage(project: project);
         },
       ),
     ],
@@ -40,24 +39,24 @@ class PortfolioApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        brightness: Brightness.light,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
-      scrollBehavior: const MaterialScrollBehavior().copyWith(
-        dragDevices: {
-          PointerDeviceKind.mouse,
-          PointerDeviceKind.touch,
-          PointerDeviceKind.stylus,
-          PointerDeviceKind.unknown
-        },
-      ),
-      routerConfig: _router,
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+          scrollBehavior: const MaterialScrollBehavior().copyWith(
+            dragDevices: {
+              PointerDeviceKind.mouse,
+              PointerDeviceKind.touch,
+              PointerDeviceKind.stylus,
+              PointerDeviceKind.unknown
+            },
+          ),
+          routerConfig: _router,
+        );
+      },
     );
   }
 }
