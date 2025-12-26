@@ -15,7 +15,8 @@ class Footer extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       final bool isDesktop = constraints.maxWidth >= 700;
 
-      final Color textColor = Theme.of(context).textTheme.bodySmall?.color ?? Theme.of(context).colorScheme.onBackground;
+      final Color textColor = Theme.of(context).textTheme.bodySmall?.color ??
+          Theme.of(context).colorScheme.onSurface;
       final Color linkColor = Theme.of(context).colorScheme.primary;
 
       return SizedBox(
@@ -51,7 +52,8 @@ class Footer extends StatelessWidget {
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: 8.0),
-                              child: Contact(icon: Icons.phone, info: '+39 3669592792'),
+                              child: Contact(
+                                  icon: Icons.phone, info: '+39 3669592792'),
                             ),
                             Contact(
                               icon: Icons.pin_drop_outlined,
@@ -87,7 +89,8 @@ class Footer extends StatelessWidget {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: 'This portfolio is made in Flutter. Check the code ',
+                            text:
+                                'This portfolio is made in Flutter. Check the code ',
                             style: TextStyle(color: textColor),
                           ),
                           TextSpan(
@@ -95,7 +98,8 @@ class Footer extends StatelessWidget {
                             style: TextStyle(color: linkColor),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                launchURL('https://github.com/BlAcKPhOeNiX233/portfolio');
+                                launchURL(
+                                    'https://github.com/BlAcKPhOeNiX233/portfolio');
                               },
                           ),
                           TextSpan(

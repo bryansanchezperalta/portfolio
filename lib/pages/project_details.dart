@@ -13,14 +13,14 @@ class ProjectDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ScrollController _scrollController = ScrollController();
+    final ScrollController scrollController = ScrollController();
 
     return LayoutBuilder(builder: (context, constraints) {
       final bool isDesktop = constraints.maxWidth >= 700;
 
       return Scaffold(
         body: ListView(
-          controller: _scrollController,
+          controller: scrollController,
           children: [
             Padding(
               padding: EdgeInsets.all(AppPaddings.medium),
@@ -75,7 +75,7 @@ class ProjectDetailsPage extends StatelessWidget {
               ),
             ),
 
-            Footer(scrollController: _scrollController),
+            Footer(scrollController: scrollController),
           ],
         ),
       );
