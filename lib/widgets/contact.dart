@@ -26,10 +26,13 @@ class Contact extends StatelessWidget {
             margin: EdgeInsets.only(right: AppPaddings.medium),
             padding: EdgeInsets.all(AppPaddings.small),
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Theme.of(context).colorScheme.primary,
               borderRadius: BorderRadius.circular(AppBorderRadii.max),
             ),
-            child: Icon(icon),
+            child: Icon(
+              icon,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
           ),
           if (info != null) Text(info!),
         ],

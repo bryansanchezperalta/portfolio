@@ -18,7 +18,7 @@ class Section extends StatelessWidget {
             style: TextStyle(
               fontSize: AppFontSizes.large,
               fontWeight: FontWeight.bold,
-              color: Colors.blue,
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
           Padding(

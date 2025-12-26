@@ -1,70 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/theme/app_colors.dart';
 
 class AppTheme {
-  // Light Theme Colors
-  static const Color lightPrimaryColor = Color(0xFF2196F3);
-  static const Color lightScaffoldBackgroundColor = Color(0xFFFFFFFF);
-  static const Color lightCardColor = Color(0xFFF5F5F5);
-  static const Color lightTextColor = Color(0xFF212121);
-  static const Color lightSubtextColor = Color(0xFF757575);
-  static const Color lightDividerColor = Color(0xFFBDBDBD);
-
-  // Dark Theme Colors
-  static const Color darkPrimaryColor = Color(0xFF64B5F6);
-  static const Color darkScaffoldBackgroundColor = Color(0xFF121212);
-  static const Color darkCardColor = Color(0xFF1E1E1E);
-  static const Color darkTextColor = Color(0xFFFFFFFF);
-  static const Color darkSubtextColor = Color(0xFFB0B0B0);
-  static const Color darkDividerColor = Color(0xFF424242);
+  // Colors are defined in AppColors
 
   // Light Theme
   static ThemeData lightTheme = ThemeData(
     useMaterial3: false,
     brightness: Brightness.light,
-    primaryColor: lightPrimaryColor,
+    primaryColor: AppColors.primaryLight,
     primarySwatch: Colors.blue,
-    scaffoldBackgroundColor: lightScaffoldBackgroundColor,
-    cardColor: lightCardColor,
+    scaffoldBackgroundColor: AppColors.scaffoldLight,
+    cardColor: AppColors.cardLight,
     shadowColor: Colors.black.withValues(alpha: 0.1),
     textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: lightTextColor),
-      bodyMedium: TextStyle(color: lightTextColor),
-      bodySmall: TextStyle(color: lightSubtextColor),
+      bodyLarge: TextStyle(color: AppColors.textLight),
+      bodyMedium: TextStyle(color: AppColors.textLight),
+      bodySmall: TextStyle(color: AppColors.subtextLight),
       titleLarge: TextStyle(
-        color: lightTextColor,
+        color: AppColors.textLight,
         fontWeight: FontWeight.bold,
       ),
-      labelLarge: TextStyle(color: lightTextColor),
+      labelLarge: TextStyle(color: AppColors.textLight),
     ),
     appBarTheme: const AppBarTheme(
-      backgroundColor: lightScaffoldBackgroundColor,
+      backgroundColor: AppColors.scaffoldLight,
       elevation: 0,
-      iconTheme: IconThemeData(color: lightTextColor),
+      iconTheme: IconThemeData(color: AppColors.textLight),
       titleTextStyle: TextStyle(
-        color: lightTextColor,
+        color: AppColors.textLight,
         fontSize: 20,
         fontWeight: FontWeight.bold,
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: lightPrimaryColor,
-        foregroundColor: Colors.white,
+        backgroundColor: AppColors.primaryLight,
+        foregroundColor: AppColors.onPrimaryLight,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       ),
     ),
     cardTheme: CardThemeData(
-      color: lightCardColor,
+      color: AppColors.cardLight,
       elevation: 2,
       shadowColor: Colors.black.withValues(alpha: 0.1),
     ),
-    dividerColor: lightDividerColor,
+    dividerColor: AppColors.dividerLight,
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: lightCardColor,
+      fillColor: AppColors.cardLight,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: lightDividerColor),
+        borderSide: const BorderSide(color: AppColors.dividerLight),
       ),
     ),
   );
@@ -73,50 +60,50 @@ class AppTheme {
   static ThemeData darkTheme = ThemeData(
     useMaterial3: false,
     brightness: Brightness.dark,
-    primaryColor: darkPrimaryColor,
+    primaryColor: AppColors.primaryDark,
     primarySwatch: Colors.blue,
-    scaffoldBackgroundColor: darkScaffoldBackgroundColor,
-    cardColor: darkCardColor,
+    scaffoldBackgroundColor: AppColors.scaffoldDark,
+    cardColor: AppColors.cardDark,
     shadowColor: Colors.black.withValues(alpha: 0.5),
     textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: darkTextColor),
-      bodyMedium: TextStyle(color: darkTextColor),
-      bodySmall: TextStyle(color: darkSubtextColor),
+      bodyLarge: TextStyle(color: AppColors.textDark),
+      bodyMedium: TextStyle(color: AppColors.textDark),
+      bodySmall: TextStyle(color: AppColors.subtextDark),
       titleLarge: TextStyle(
-        color: darkTextColor,
+        color: AppColors.textDark,
         fontWeight: FontWeight.bold,
       ),
-      labelLarge: TextStyle(color: darkTextColor),
+      labelLarge: TextStyle(color: AppColors.textDark),
     ),
     appBarTheme: const AppBarTheme(
-      backgroundColor: darkCardColor,
+      backgroundColor: AppColors.cardDark,
       elevation: 0,
-      iconTheme: IconThemeData(color: darkTextColor),
+      iconTheme: IconThemeData(color: AppColors.textDark),
       titleTextStyle: TextStyle(
-        color: darkTextColor,
+        color: AppColors.textDark,
         fontSize: 20,
         fontWeight: FontWeight.bold,
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: darkPrimaryColor,
-        foregroundColor: darkScaffoldBackgroundColor,
+        backgroundColor: AppColors.primaryDark,
+        foregroundColor: AppColors.onPrimaryDark,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       ),
     ),
     cardTheme: CardThemeData(
-      color: darkCardColor,
+      color: AppColors.cardDark,
       elevation: 2,
       shadowColor: Colors.black.withValues(alpha: 0.5),
     ),
-    dividerColor: darkDividerColor,
+    dividerColor: AppColors.dividerDark,
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: darkCardColor,
+      fillColor: AppColors.cardDark,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: darkDividerColor),
+        borderSide: const BorderSide(color: AppColors.dividerDark),
       ),
     ),
   );
