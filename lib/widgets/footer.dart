@@ -15,6 +15,9 @@ class Footer extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       final bool isDesktop = constraints.maxWidth >= 700;
 
+      final Color textColor = Theme.of(context).textTheme.bodySmall?.color ?? Theme.of(context).colorScheme.onBackground;
+      final Color linkColor = Theme.of(context).colorScheme.primary;
+
       return SizedBox(
         width: double.infinity,
         child: Card(
@@ -24,9 +27,9 @@ class Footer extends StatelessWidget {
               Section(
                 title: 'Contacts',
                 content: isDesktop
-                    ? Row(
+                    ? const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           Contact(
                             icon: Icons.mail_rounded,
                             info: 'bryansanchez.311@gmail.com',
@@ -83,21 +86,21 @@ class Footer extends StatelessWidget {
                     RichText(
                       text: TextSpan(
                         children: [
-                          const TextSpan(
+                          TextSpan(
                             text: 'This portfolio is made in Flutter. Check the code ',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: textColor),
                           ),
                           TextSpan(
                             text: 'here',
-                            style: const TextStyle(color: Colors.blue),
+                            style: TextStyle(color: linkColor),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 launchURL('https://github.com/BlAcKPhOeNiX233/portfolio');
                               },
                           ),
-                          const TextSpan(
+                          TextSpan(
                             text: '.',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: textColor),
                           ),
                         ],
                       ),
