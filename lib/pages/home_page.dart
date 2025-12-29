@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:portfolio/constants.dart';
+import 'package:portfolio/models/tool.dart';
 import 'package:portfolio/widgets/cards/experience_card.dart';
-import 'package:portfolio/widgets/cards/project_card.dart';
+import 'package:portfolio/widgets/cards/tool_card.dart';
 import 'package:portfolio/widgets/footer.dart';
 import 'package:portfolio/widgets/rows/education_row.dart';
 import 'package:portfolio/widgets/rows/professional_experiences_row.dart';
@@ -36,7 +37,9 @@ class HomePage extends StatelessWidget {
           padding: EdgeInsets.only(top: AppPaddings.medium),
           children: [
             // Header area (responsive layout)
-            isDesktop ? _buildDesktopHeader(context, scrollController) : _buildMobileHeader(context, scrollController),
+            isDesktop
+                ? _buildDesktopHeader(context, scrollController)
+                : _buildMobileHeader(context, scrollController),
 
             // Projects
             Padding(
@@ -46,7 +49,6 @@ class HomePage extends StatelessWidget {
                 content: ProjectsRow(),
               ),
             ),
-
             // Tools
             Section(
               title: 'Tools',
@@ -55,48 +57,12 @@ class HomePage extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
-                  children: const [
-                    ProjectCard(
-                      imageName: 'icons/swiftui.png',
-                      title: 'SwiftUI',
-                    ),
-                    ProjectCard(
-                      imageName: 'icons/flutter.png',
-                      title: 'Flutter',
-                    ),
-                    ProjectCard(
-                      imageName: 'icons/firebase.png',
-                      title: 'Firebase',
-                    ),
-                    ProjectCard(
-                      imageName: 'icons/google_cloud.jpg',
-                      title: 'Google Cloud',
-                    ),
-                    ProjectCard(
-                      imageName: 'icons/homekit.png',
-                      title: 'HomeKit',
-                    ),
-                    ProjectCard(
-                      imageName: 'icons/realitykit.jpg',
-                      title: 'RealityKit',
-                    ),
-                    ProjectCard(
-                      imageName: 'icons/filemaker.png',
-                      title: 'FileMaker',
-                    ),
-                    ProjectCard(
-                      imageName: 'icons/google_maps.jpeg',
-                      title: 'Google Maps Api',
-                    ),
-                    ProjectCard(
-                      imageName: 'icons/mapkit.jpg',
-                      title: 'MapKit',
-                    ),
-                  ],
+                  children: Tool.values.map((tool) {
+                    return ToolCard(tool: tool);
+                  }).toList(),
                 ),
               ),
             ),
-
             const Section(
               title: 'Professional Experiences',
               content: ProfessionalExperiencesRow(),
@@ -124,7 +90,8 @@ class HomePage extends StatelessWidget {
     });
   }
 
-  Widget _buildDesktopHeader(BuildContext context, ScrollController controller) {
+  Widget _buildDesktopHeader(
+      BuildContext context, ScrollController controller) {
     return Column(
       children: [
         Row(
@@ -170,7 +137,10 @@ class HomePage extends StatelessWidget {
                           final pdfData = data.buffer.asUint8List();
                           final blob = html.Blob([pdfData], 'application/pdf');
                           final url = html.Url.createObjectUrlFromBlob(blob);
-                          html.AnchorElement(href: url)..target = 'blank'..download = 'cv.pdf'..click();
+                          html.AnchorElement(href: url)
+                            ..target = 'blank'
+                            ..download = 'cv.pdf'
+                            ..click();
                           html.Url.revokeObjectUrl(url);
                         },
                         child: const Text('Download CV'),
@@ -238,7 +208,10 @@ class HomePage extends StatelessWidget {
                         final pdfData = data.buffer.asUint8List();
                         final blob = html.Blob([pdfData], 'application/pdf');
                         final url = html.Url.createObjectUrlFromBlob(blob);
-                        html.AnchorElement(href: url)..target = 'blank'..download = 'cv.pdf'..click();
+                        html.AnchorElement(href: url)
+                          ..target = 'blank'
+                          ..download = 'cv.pdf'
+                          ..click();
                         html.Url.revokeObjectUrl(url);
                       },
                       child: const Text('Download CV'),

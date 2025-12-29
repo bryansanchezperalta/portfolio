@@ -66,6 +66,7 @@ flutter:
 
   assets:
     - assets/profile_image.jpg
+    - assets/icons/bancomat.png
     - assets/icons/spark.png
     - assets/icons/rhd.png
     - assets/icons/evergreen.jpg

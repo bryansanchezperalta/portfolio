@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/models/project.dart';
 import 'package:portfolio/widgets/cards/milestone_card.dart';
-import 'package:portfolio/widgets/cards/project_card.dart';
+import 'package:portfolio/widgets/cards/tool_card.dart';
 import 'package:portfolio/widgets/section.dart';
 import 'package:portfolio/widgets/rows/store_links.dart';
 import 'package:portfolio/widgets/footer.dart';
@@ -34,7 +34,7 @@ class ProjectDetailsPage extends StatelessWidget {
                 child: SizedBox(
                   width: double.infinity,
                   child: Text(
-                    project.description,
+                    project.descripition,
                     style: TextStyle(fontSize: AppFontSizes.small),
                   ),
                 ),
@@ -81,10 +81,7 @@ class ProjectDetailsPage extends StatelessWidget {
             content: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: project.tools.map((tool) {
-                return ProjectCard(
-                  imageName: tool.imagePath,
-                  title: tool.title,
-                );
+                return ToolCard(tool: tool);
               }).toList(),
             ),
           ),
