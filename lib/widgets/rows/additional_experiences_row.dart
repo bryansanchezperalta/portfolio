@@ -16,7 +16,7 @@ class _AdditionalExperiencesRowState extends State<AdditionalExperiencesRow> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200,
+      height: 100,
       child: ListView(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
