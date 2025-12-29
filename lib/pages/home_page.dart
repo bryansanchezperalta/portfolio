@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/models/tool.dart';
-import 'package:portfolio/widgets/cards/experience_card.dart';
 import 'package:portfolio/widgets/cards/tool_card.dart';
 import 'package:portfolio/widgets/footer.dart';
 import 'package:portfolio/widgets/rows/additional_experiences_row.dart';
@@ -10,7 +9,6 @@ import 'package:portfolio/widgets/rows/education_row.dart';
 import 'package:portfolio/widgets/rows/professional_experiences_row.dart';
 import 'package:portfolio/widgets/rows/home_projects_row.dart';
 import 'package:portfolio/widgets/section.dart';
-import 'package:portfolio/models/additional_experience.dart';
 import 'package:portfolio/widgets/theme_toggle_button.dart';
 import 'package:universal_html/html.dart' as html;
 
@@ -173,8 +171,12 @@ class HomePage extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: AppPaddings.medium),
       child: Column(
         children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(AppBorderRadii.small),
+            child: Image.asset('profile_image.jpg', height: 200),
+          ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
+            padding: EdgeInsets.all(AppPaddings.medium),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -231,13 +233,6 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(AppPaddings.medium),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(AppBorderRadii.small),
-              child: Image.asset('profile_image.jpg', height: 200),
             ),
           ),
         ],
