@@ -17,12 +17,65 @@ class _ProjectsRowState extends State<ProjectsRow> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
+      height: 150,  
       child: ListView(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
         children: [
+          ProjectCard(
+            imageName: 'icons/bancomat.png',
+            title: 'BANCOMAT',
+            onTap: () {
+              context.push(
+                '/project',
+                extra: Project(
+                  imagePath: 'icons/bancomat.png',
+                  title: 'BANCOMAT',
+                  iosLink: 'https://apps.apple.com/it/app/bancomat/id1467760256',
+                  androidLink: 'https://play.google.com/store/apps/details?id=it.bancomat.pay.user&pcampaignid=web_share',
+                  description:
+                      'BANCOMAT is a mobile application for digital payments and real-time money transfers, directly integrated with users’ bank accounts.\nKey features include:\n1) Peer-to-peer payments using phone numbers\n2) Online and in-store payments via QR Code\n3)Secure and instant payment processing flows\n3)Request and receive money between contacts4)Integration of a loyalty system (BANCOMAT Club) with rewards, personalized offers, and gamification mechanics\n5) Digital wallet for storing loyalty cards and documents\n6) The app is designed with a strong focus on transaction security, performance, and usability, ensuring fast and reliable payment experiences while maintaining a smooth and intuitive user journey.',
+                  role: 'Flutter Developer',
+                  imagesPath: [
+                    'projects/bancomat/app_images/home.png',
+                    'projects/bancomat/app_images/send_and_request.png',
+                    'projects/bancomat/app_images/payment_request.png',
+                    'projects/bancomat/app_images/shops.png',
+                    'projects/bancomat/app_images/loyalty.png',
+                  ],
+                  milestones: [
+                    Milestone(
+                      icon: Icons.barcode_reader,
+                      description:
+                          'Build the barcode scanner',
+                    ),
+                    Milestone(
+                      icon: Icons.brush,
+                      description:
+                          'Developed complex canva for camera preview',
+                    ),
+                    Milestone(
+                      icon: Icons.accessibility,
+                      description:
+                          'Integrated accessibility standards',
+                    ),
+                  ],
+                  tools: [
+                    Tool(imagePath: 'icons/flutter.png', title: 'Flutter'),
+                    Tool(
+                      imagePath: 'icons/firebase.png',
+                      title: 'Firebase',
+                    ),
+                    Tool(
+                      imagePath: 'icons/google_cloud.jpg',
+                      title: 'Google Cloud',
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
           ProjectCard(
             imageName: 'icons/rhd.png',
             title: 'RHD',
