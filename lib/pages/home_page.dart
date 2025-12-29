@@ -166,11 +166,11 @@ class HomePage extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         onPressed: () async {
-                          ByteData data = await rootBundle.load('cv.docx');
+                          ByteData data = await rootBundle.load('cv.pdf');
                           final pdfData = data.buffer.asUint8List();
                           final blob = html.Blob([pdfData], 'application/pdf');
                           final url = html.Url.createObjectUrlFromBlob(blob);
-                          html.AnchorElement(href: url)..target = 'blank'..download = 'cv.docx'..click();
+                          html.AnchorElement(href: url)..target = 'blank'..download = 'cv.pdf'..click();
                           html.Url.revokeObjectUrl(url);
                         },
                         child: const Text('Download CV'),
@@ -234,11 +234,11 @@ class HomePage extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () async {
-                        ByteData data = await rootBundle.load('cv.docx');
+                        ByteData data = await rootBundle.load('cv.pdf');
                         final pdfData = data.buffer.asUint8List();
                         final blob = html.Blob([pdfData], 'application/pdf');
                         final url = html.Url.createObjectUrlFromBlob(blob);
-                        html.AnchorElement(href: url)..target = 'blank'..download = 'cv.docx'..click();
+                        html.AnchorElement(href: url)..target = 'blank'..download = 'cv.pdf'..click();
                         html.Url.revokeObjectUrl(url);
                       },
                       child: const Text('Download CV'),
