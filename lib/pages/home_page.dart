@@ -36,12 +36,12 @@ class HomePage extends StatelessWidget {
           controller: scrollController,
           padding: EdgeInsets.only(top: AppPaddings.medium),
           children: [
-            // Header area (responsive layout)
+            //MARK: Header
             isDesktop
                 ? _buildDesktopHeader(context, scrollController)
                 : _buildMobileHeader(context, scrollController),
 
-            // Projects
+            //MARK: Projects
             Padding(
               padding: EdgeInsets.only(top: AppPaddings.medium),
               child: const Section(
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
                 content: ProjectsRow(),
               ),
             ),
-            // Tools
+            //MARK: Tools
             Section(
               title: 'Tools',
               content: SizedBox(
@@ -63,11 +63,12 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+            //MARK: Professional Experiences
             const Section(
               title: 'Professional Experiences',
               content: ProfessionalExperiencesRow(),
             ),
-
+            //MARK: Additional Experiences
             const Section(
               title: 'Additional Experiences',
               content: ExperienceCard(
@@ -76,13 +77,12 @@ class HomePage extends StatelessWidget {
                     'I created and developed S-Park, a multi-platform app available on both the App Store and Play Store.\nDuring development, I deepened my knowledge of Dart, Flutter and Firebase.',
               ),
             ),
-
+            //MARK: Education and training
             const Section(
               title: 'Education and training',
               content: EducationRow(),
             ),
-
-            // Footer (responsive)
+            //MARK Footer
             Footer(scrollController: scrollController),
           ],
         ),

@@ -19,10 +19,12 @@ class ProjectDetailsPage extends StatelessWidget {
       body: ListView(
         controller: scrollController,
         children: [
+          //MARK: Header
           Padding(
             padding: EdgeInsets.all(AppPaddings.medium),
             child: _header(context),
           ),
+          //MARK: Description
           Section(
             title: 'Description',
             content: Card(
@@ -41,6 +43,7 @@ class ProjectDetailsPage extends StatelessWidget {
               ),
             ),
           ),
+          //MARK: Images
           if (project.imagesPath != null)
             Section(
               title: 'Images',
@@ -60,6 +63,7 @@ class ProjectDetailsPage extends StatelessWidget {
                 ),
               ),
             ),
+          //MARK: Milestones
           Section(
             title: 'Milestones',
             content: SizedBox(
@@ -76,6 +80,7 @@ class ProjectDetailsPage extends StatelessWidget {
               ),
             ),
           ),
+          //MARK: Tools
           Section(
             title: 'Tools',
             content: Row(
@@ -85,6 +90,7 @@ class ProjectDetailsPage extends StatelessWidget {
               }).toList(),
             ),
           ),
+          //MARK Footer
           Footer(scrollController: scrollController),
         ],
       ),
