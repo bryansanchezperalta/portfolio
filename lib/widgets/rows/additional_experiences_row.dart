@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
+import 'package:portfolio/models/additional_experience.dart';
 import 'package:portfolio/widgets/cards/experience_card.dart';
-import 'package:portfolio/models/education_and_training.dart';
 
-class EducationRow extends StatefulWidget {
-  const EducationRow({super.key});
+class AdditionalExperiencesRow extends StatefulWidget {
+  const AdditionalExperiencesRow({super.key});
 
   @override
-  State<EducationRow> createState() => _EducationRowState();
+  State<AdditionalExperiencesRow> createState() {
+    return _AdditionalExperiencesRowState();
+  }
 }
 
-class _EducationRowState extends State<EducationRow> {
+class _AdditionalExperiencesRowState extends State<AdditionalExperiencesRow> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 200,
       child: ListView(
         scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
         shrinkWrap: true,
-        children: EducationAndTraining.values.map((experience) {
+        padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
+        children: AdditionalExperience.values.map((experience) {
           return ExperienceCard(
             title: experience.title,
-            date: experience.date,
             description: experience.description,
           );
         }).toList(),

@@ -5,10 +5,12 @@ import 'package:portfolio/models/tool.dart';
 import 'package:portfolio/widgets/cards/experience_card.dart';
 import 'package:portfolio/widgets/cards/tool_card.dart';
 import 'package:portfolio/widgets/footer.dart';
+import 'package:portfolio/widgets/rows/additional_experiences_row.dart';
 import 'package:portfolio/widgets/rows/education_row.dart';
 import 'package:portfolio/widgets/rows/professional_experiences_row.dart';
 import 'package:portfolio/widgets/rows/home_projects_row.dart';
 import 'package:portfolio/widgets/section.dart';
+import 'package:portfolio/models/additional_experience.dart';
 import 'package:portfolio/widgets/theme_toggle_button.dart';
 import 'package:universal_html/html.dart' as html;
 
@@ -56,6 +58,7 @@ class HomePage extends StatelessWidget {
                 height: 150,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
                   padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
                   children: Tool.values.map((tool) {
                     return ToolCard(tool: tool);
@@ -71,11 +74,7 @@ class HomePage extends StatelessWidget {
             //MARK: Additional Experiences
             const Section(
               title: 'Additional Experiences',
-              content: ExperienceCard(
-                title: 'S-Park',
-                description:
-                    'I created and developed S-Park, a multi-platform app available on both the App Store and Play Store.\nDuring development, I deepened my knowledge of Dart, Flutter and Firebase.',
-              ),
+              content: AdditionalExperiencesRow(),
             ),
             //MARK: Education and training
             const Section(
