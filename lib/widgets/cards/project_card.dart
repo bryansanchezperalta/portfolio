@@ -19,7 +19,6 @@ class ProjectCard extends StatelessWidget {
       onTap: onTap,
       child: SizedBox(
         width: 150,
-        height: 150,
         child: Card(
           child: Padding(
             padding: EdgeInsets.all(AppPaddings.small),

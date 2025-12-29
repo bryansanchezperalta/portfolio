@@ -10,7 +10,7 @@ class LinkButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      child: Icon(icon, size: 32),
+      child: Icon(icon),
       onTap: () {
         launchURL(rawUrl);
       },

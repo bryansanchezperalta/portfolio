@@ -15,85 +15,99 @@ class ProjectDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
 
-    return LayoutBuilder(builder: (context, constraints) {
-      final bool isDesktop = constraints.maxWidth >= 700;
-
-      return Scaffold(
-        body: ListView(
-          controller: scrollController,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(AppPaddings.medium),
-              child: isDesktop ? _desktopHeader(context) : _mobileHeader(context),
-            ),
-
-            if (project.imagesPath != null)
-              Section(
-                title: 'Images',
-                content: Card(
-                  margin: EdgeInsets.symmetric(horizontal: AppBorderRadii.medium),
-                  child: SizedBox(
-                    height: 350,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.all(AppPaddings.medium),
-                      children: project.imagesPath!.map((imagePath) {
-                        return Image.asset(imagePath);
-                      }).toList(),
-                    ),
+    return Scaffold(
+      body: ListView(
+        controller: scrollController,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(AppPaddings.medium),
+            child: _header(context),
+          ),
+          Section(
+            title: 'Description',
+            content: Card(
+              margin: EdgeInsets.symmetric(
+                horizontal: AppPaddings.medium,
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(AppPaddings.medium),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Text(
+                    project.description,
+                    style: TextStyle(fontSize: AppFontSizes.small),
                   ),
                 ),
               ),
-
+            ),
+          ),
+          if (project.imagesPath != null)
             Section(
-              title: 'Milestones',
-              content: SizedBox(
-                height: 100,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
-                  children: project.milestones.map((milestone) {
-                    return MilestoneCard(
-                      icon: milestone.icon,
-                      description: milestone.description,
-                    );
-                  }).toList(),
+              title: 'Images',
+              content: Card(
+                margin: EdgeInsets.symmetric(
+                  horizontal: AppPaddings.medium,
+                ),
+                child: SizedBox(
+                  height: 350,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.all(AppPaddings.medium),
+                    children: project.imagesPath!.map((imagePath) {
+                      return Image.asset(imagePath);
+                    }).toList(),
+                  ),
                 ),
               ),
             ),
-
-            Section(
-              title: 'Tools',
-              content: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: project.tools.map((tool) {
-                  return ProjectCard(
-                    imageName: tool.imagePath,
-                    title: tool.title,
+          Section(
+            title: 'Milestones',
+            content: SizedBox(
+              height: 100,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
+                children: project.milestones.map((milestone) {
+                  return MilestoneCard(
+                    icon: milestone.icon,
+                    description: milestone.description,
                   );
                 }).toList(),
               ),
             ),
-
-            Footer(scrollController: scrollController),
-          ],
-        ),
-      );
-    });
+          ),
+          Section(
+            title: 'Tools',
+            content: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: project.tools.map((tool) {
+                return ProjectCard(
+                  imageName: tool.imagePath,
+                  title: tool.title,
+                );
+              }).toList(),
+            ),
+          ),
+          Footer(scrollController: scrollController),
+        ],
+      ),
+    );
   }
 
-  Widget _desktopHeader(BuildContext context) {
+  Widget _header(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(AppBorderRadii.small),
-          child: Image.asset(project.imagePath, height: 200),
+          child: Image.asset(
+            project.imagePath,
+            height: 100,
+            fit: BoxFit.cover,
+          ),
         ),
         Container(
           padding: EdgeInsets.only(left: AppPaddings.medium),
-          height: 200,
-          width: 450,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -108,14 +122,12 @@ class ProjectDetailsPage extends StatelessWidget {
                 project.role,
                 style: TextStyle(fontSize: AppFontSizes.small),
               ),
-              Text(
-                project.description,
-                style: TextStyle(fontSize: AppFontSizes.small),
-              ),
-              const Spacer(),
-              StoreLinks(
-                iosUrl: project.iosLink,
-                androidUrl: project.androidLink,
+              Padding(
+                padding: EdgeInsets.only(top: AppPaddings.small),
+                child: StoreLinks(
+                  iosUrl: project.iosLink,
+                  androidUrl: project.androidLink,
+                ),
               ),
             ],
           ),
@@ -123,51 +135,4 @@ class ProjectDetailsPage extends StatelessWidget {
       ],
     );
   }
-
-  Widget _mobileHeader(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                project.title,
-                style: TextStyle(
-                  fontSize: AppFontSizes.xl,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                project.role,
-                style: TextStyle(
-                  fontSize: AppFontSizes.large,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                project.description,
-                style: TextStyle(fontSize: AppFontSizes.small),
-              ),
-              StoreLinks(
-                iosUrl: project.iosLink,
-                androidUrl: project.androidLink,
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(AppPaddings.medium),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(AppBorderRadii.small),
-            child: Image.asset(project.imagePath, height: 200),
-          ),
-        ),
-      ],
-    );
-  }
-
-  // helper to create a ScrollController for footer usage
 }
