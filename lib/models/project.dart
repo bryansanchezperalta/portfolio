@@ -10,17 +10,18 @@ enum Project {
   evergreen;
 
   String get imagePath {
+    String basePath = 'images';
     switch (this) {
       case bancomat:
-        return 'assets/icons/bancomat.png';
+        return '$basePath/bancomat/logo.png';
       case rhd:
-        return 'assets/icons/rhd.png';
+        return '$basePath/rhd/logo.png';
       case spark:
-        return 'assets/icons/spark.png';
+        return '$basePath/spark/logo.png';
       case homext:
-        return 'assets/icons/homext.jpeg';
+        return '$basePath/homext/logo.jpeg';
       case evergreen:
-        return 'assets/icons/evergreen.jpg';
+        return '$basePath/evergreen/logo.jpg';
     }
   }
 
@@ -100,28 +101,30 @@ enum Project {
   }
 
   List<String>? get imagesPath {
+    String basePath = 'images/';
+
     switch (this) {
       case bancomat:
         return [
-          'projects/bancomat/app_images/home.png',
-          'projects/bancomat/app_images/send_and_request.png',
-          'projects/bancomat/app_images/payment_request.png',
-          'projects/bancomat/app_images/shops.png',
-          'projects/bancomat/app_images/loyalty.png',
+          '$basePath/bancomat/home.png',
+          '$basePath/bancomat/send_and_request.png',
+          '$basePath/bancomat/payment_request.png',
+          '$basePath/bancomat/shops.png',
+          '$basePath/bancomat/loyalty.png',
         ];
       case rhd:
         return [
-          'projects/rhd/app_images/splash.png',
-          'projects/rhd/app_images/dashboards.png',
-          'projects/rhd/app_images/myRHD.png',
-          'projects/rhd/app_images/tickets.png',
+          '$basePath/rhd/splash.png',
+          '$basePath/rhd/dashboards.png',
+          '$basePath/rhd/myRHD.png',
+          '$basePath/rhd/tickets.png',
         ];
       case spark:
         return [
-          'projects/spark/app_images/map.png',
-          'projects/spark/app_images/garage_modal.png',
-          'projects/spark/app_images/garage.png',
-          'projects/spark/app_images/profile.png',
+          '$basePath/spark/map.png',
+          '$basePath/spark/garage_modal.png',
+          '$basePath/spark/garage.png',
+          '$basePath/spark/profile.png',
         ];
       case homext:
         return null;

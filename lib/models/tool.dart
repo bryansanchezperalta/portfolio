@@ -11,21 +11,21 @@ enum Tool {
   String get imagePath {
     switch (this) {
       case flutter:
-        return 'icons/flutter.png';
+        return 'images/tools/flutter.png';
       case firebase:
-        return 'icons/firebase.png';
+        return 'images/tools/firebase.png';
       case googleCloud:
-        return 'icons/google_cloud.jpg';
+        return 'images/tools/google_cloud.jpg';
       case googleMaps:
-        return 'icons/google_maps.jpeg';
+        return 'images/tools/google_maps.jpeg';
       case mapKit:
-        return 'icons/mapkit.jpg';
+        return 'images/tools/mapkit.jpg';
       case swiftUI:
-        return 'icons/swiftui.png';
+        return 'images/tools/swiftui.png';
       case homeKit:
-        return 'icons/homekit.png';
+        return 'images/tools/homekit.png';
       case fileMaker:
-        return 'icons/filemaker.png';
+        return 'images/tools/filemaker.png';
     }
   }
 

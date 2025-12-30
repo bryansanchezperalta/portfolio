@@ -96,7 +96,7 @@ class HomePage extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(AppBorderRadii.small),
-              child: Image.asset('profile_image.jpg', height: 200),
+              child: Image.asset('images/profile_image.jpg', height: 200),
             ),
             Container(
               padding: EdgeInsets.only(left: AppPaddings.medium),
@@ -173,7 +173,7 @@ class HomePage extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(AppBorderRadii.small),
-            child: Image.asset('profile_image.jpg', height: 200),
+            child: Image.asset('images/profile_image.jpg', height: 200),
           ),
           Padding(
             padding: EdgeInsets.all(AppPaddings.medium),

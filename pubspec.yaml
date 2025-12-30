@@ -65,20 +65,13 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/profile_image.jpg
-    - assets/icons/bancomat.png
-    - assets/icons/spark.png
-    - assets/icons/rhd.png
-    - assets/icons/evergreen.jpg
-    - assets/icons/homext.jpeg
-    - assets/icons/swiftui.png
-    - assets/icons/flutter.png
-    - assets/icons/firebase.png
-    - assets/icons/google_cloud.jpg
-    - assets/icons/homekit.png
-    - assets/icons/realitykit.jpg
-    - assets/projects/spark/app_images/
-    - assets/projects/rhd/app_images/
+    - images/profile_image.jpg
+    - images/tools/
+    - images/spark/
+    - images/rhd/
+    - images/evergreen/
+    - images/homext/
+    - images/bancomat/
     - assets/cv.pdf
 
 
